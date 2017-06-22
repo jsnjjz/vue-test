@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box {
+			width: 200px;
+			height: 200px;
+			background: yellowgreen;
+		}
+	</style>
+	<script src="vue.js"></script>
+		<script>
+					window.onload = function(){
+//						var app = new Vue({
+//							el: ".box",  					//选择器
+//							data: {								//放数据
+//							message: ""
+//							}
+//					})
+
+				var app = new Vue({
+					el: ".box",
+					data: {
+						message: "",
+						seen: true,
+					},
+					methods: {
+						toggle: function (){
+							this.seen = !this.seen;
+						}
+					}
+				})
+				}
+	</script>
+</head>
+<body>
+	<div class="box">
+	
+		<input type="text" id="inp" v-model="message" v-bind:title="message">
+		<input type="text" :placeholder="message">
+		<div id="div1">
+			{{message}}
+		</div>
+		<button v-on:click="toggle">点击</button>
+		<div id="box" v-if="seen"></div>
+
+	</div>
+</body>
+</html>
